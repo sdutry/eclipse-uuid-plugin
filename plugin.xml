@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="be.sdutry.eclipse.plugin.uuid.commands.category"
+            name="textgenerator">
+      </category>
+      <command
+            categoryId="be.sdutry.eclipse.plugin.uuid.commands.category"
+            name="UUID Generator"
+            id="be.sdutry.eclipse.plugin.uuid.commands.UUIDGeneratorCommand">
+      </command>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="be.sdutry.eclipse.plugin.uuid.handlers.UUIDHandler"
+            commandId="be.sdutry.eclipse.plugin.uuid.commands.UUIDGeneratorCommand">
+      </handler>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="be.sdutry.eclipse.plugin.uuid.commands.UUIDGeneratorCommand"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="Ctrl+Alt+U">
+      </key>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.eclipse.ui.edit.text?after=additions">
+         <command
+               commandId="com.example.uuidgenerator.command"
+               label="Insert UUID"
+               style="push" />
+      </menuContribution>
+   </extension>
+
+</plugin>
